@@ -1,0 +1,10 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.user_list {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=Home.css.map */
