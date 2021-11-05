@@ -1,8 +1,7 @@
 import "./Home.css";
-import { users } from "../Route/Route";
+import { users } from "../Route";
 
-export function Home() {
-
+export const Home = () => {
   return (
     <div className="home">
       {users.map((user) => (
@@ -12,4 +11,4 @@ export function Home() {
       ))}
     </div>
   );
-}
+};
