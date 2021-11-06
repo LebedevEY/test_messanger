@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import {
   Login,
   PrivateRoute,
@@ -12,7 +12,9 @@ import {
 import "./index.css";
 import { Switch } from "react-router";
 
-function Index() {
+function App() {
+  const [session, setSession] = useState(null);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -34,14 +36,31 @@ function Index() {
         </header>
 
         <Switch>
-          <PublicRoute exact={true} path="/" component={() => <Home />} />
-          <Route path="/login" component={() => <Login />} />
-          <Route path="/chat" component={() => <Chat />} />
-          <Route path="/profile" component={() => <Profile />} />
+          <PrivateRoute
+            isAut={session}
+            exact={true}
+            path="/"
+            component={() => <Home />}
+          />
+          <PublicRoute
+            isAut={session}
+            path="/login"
+            component={() => <Login setSession={setSession} />}
+          />
+          <PrivateRoute
+            isAut={session}
+            path="/chat"
+            component={() => <Chat user={session} />}
+          />
+          <PrivateRoute
+            isAut={session}
+            path="/profile"
+            component={() => <Profile user={session} />}
+          />
         </Switch>
       </BrowserRouter>
     </div>
   );
 }
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

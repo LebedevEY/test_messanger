@@ -1,10 +1,12 @@
 import "./Login.css";
 import { useState } from "react";
-import { users } from "../Route";
+import { Box, TextField } from "@mui/material";
+import Button from "@mui/material/Button";
 
-export const Login = () => {
+export const users = ["user 1", "user 2", "user 3"];
+
+export const Login = ({ setSession }) => {
   const [value, setValue] = useState("");
-  const [session, setSession] = useState(null);
 
   const isAuth = () => {
     if (users.includes(value)) {
@@ -14,21 +16,40 @@ export const Login = () => {
     }
   };
 
+  const handlePressInput = ({ code }) => {
+    if (code === "Enter" || code === "NumpadEnter") {
+      isAuth();
+    }
+  };
+
   return (
     <div className="login">
-      <h1>Login</h1>
-      <h2>Enter username</h2>
-      <div>
-        <input
-          type="text"
-          placeholder="Username"
-          value={value}
-          onInput={(e) => {
-            setValue(e.target.value);
-          }}
-        />
-        <button onClick={isAuth}>Log in</button>
-      </div>
+      <h1>Sign in</h1>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            required
+            label="Login"
+            onInput={(e) => setValue(e.target.value)}
+          />
+          <TextField
+            required
+            label="Password"
+            type="password"
+            onKeyPress={handlePressInput}
+          />
+        </div>
+        <Button fullWidth="true" variant="contained" onClick={isAuth}>
+          Sign in
+        </Button>
+      </Box>
     </div>
   );
 };
