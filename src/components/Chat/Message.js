@@ -4,7 +4,7 @@ export const Message = ({ message }) => {
   return (
     <div className="message">
       <h3>{message.message}</h3>
-      <p style={{ color: "red" }}>{message.author}</p>
+      <p style={{ color: "black" }}>{message.author}</p>
     </div>
   );
 };

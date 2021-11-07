@@ -46,7 +46,7 @@ export const Login = ({ setSession }) => {
             onKeyPress={handlePressInput}
           />
         </div>
-        <Button fullWidth="true" variant="contained" onClick={isAuth}>
+        <Button fullWidth={true} variant="contained" onClick={isAuth}>
           Sign in
         </Button>
       </Box>
