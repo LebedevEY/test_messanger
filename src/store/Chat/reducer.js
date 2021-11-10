@@ -1,17 +1,15 @@
 import { SEND_MESSAGE } from "./types";
 
 const initialState = {
-  messages: {},
+  messages: [],
 };
 
-export const messagesReducer = (state = initialState, action = {}) => {
+export const chatReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return {
         ...state,
-        messages: [
-          { author: action.payload.author, message: action.payload.message },
-        ],
+        messages: [{ ...action.payload.message }, ...state.messages],
       };
     default:
       return state;

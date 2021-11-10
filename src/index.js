@@ -11,6 +11,10 @@ import {
 } from "./components";
 import "./index.css";
 import { Switch } from "react-router";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "./store";
 
 function App() {
   const [session, setSession] = useState(null);
@@ -63,4 +67,11 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
+  document.getElementById("root"),
+);

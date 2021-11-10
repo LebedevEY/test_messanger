@@ -1,10 +1,10 @@
 import "./Chat.css";
 
-export const Message = ({ message }) => {
+export const Message = ({ message, author }) => {
   return (
     <div className="message">
-      <h3>{message.message}</h3>
-      <p style={{ color: "black" }}>{message.author}</p>
+      <h3 className="message_text">{message}</h3>
+      <p style={{ color: "black" }}>{author}</p>
     </div>
   );
 };

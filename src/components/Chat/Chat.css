@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1080px;
+  max-width: 1080px;
   height: 80vh;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .message_list {
@@ -31,6 +32,10 @@
   line-height: 1.5;
   box-sizing: border-box;
   text-align: right;
+}
+
+.message_text {
+  align-self: flex-start;
 }
 
 .message_form {

@@ -38,6 +38,7 @@ export const Login = ({ setSession }) => {
             required
             label="Login"
             onInput={(e) => setValue(e.target.value)}
+            autoFocus={true}
           />
           <TextField
             required
