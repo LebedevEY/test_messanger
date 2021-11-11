@@ -9,6 +9,7 @@ import { sendMessage } from "../../store/Chat";
 
 export const Chat = ({ user }) => {
   const dispatch = useDispatch();
+  const currentUser = user;
 
   const messages = useSelector((state) => {
     return state.chat.messages;
@@ -28,16 +29,12 @@ export const Chat = ({ user }) => {
     }
   };
 
-  const log = () => {
-    console.log(messages);
-  };
-
   return (
     <div className="chat">
       <h1>Chat</h1>
       <div className="message_list">
         {messages.map((message) => (
-          <Message key={nanoid()} {...message} />
+          <Message key={nanoid()} {...message} user={currentUser} />
         ))}
       </div>
       <div className="message_form">
@@ -54,7 +51,7 @@ export const Chat = ({ user }) => {
           color="primary"
           endIcon={<SendIcon />}
           size="medium"
-          onClick={log}
+          onClick={sendMessage}
         >
           Send
         </Button>

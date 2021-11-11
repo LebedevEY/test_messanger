@@ -12,27 +12,30 @@
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  align-items: flex-end;
   border-radius: 10px;
   padding: 10px;
   height: 90vh;
 }
 
-.message {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: #6fa8dc;
-  color: #fff;
-  padding: 5px 15px 5px 10px;
-  width: fit-content;
-  min-width: 20%;
-  margin: 10px 0 0 0;
-  font-size: 14px;
-  line-height: 1.5;
-  box-sizing: border-box;
-  text-align: right;
-}
+//.message {
+//  display: flex;
+//  flex-direction: column;
+//  border-radius: 10px;
+//  background-color: #6fa8dc;
+//  color: #fff;
+//  padding: 5px 15px 5px 10px;
+//  width: fit-content;
+//  min-width: 20%;
+//  margin: 10px 0 0 0;
+//  font-size: 14px;
+//  line-height: 1.5;
+//  box-sizing: border-box;
+//  text-align: right;
+//}
+//
+//.current_message {
+//  background-color: #2b6fae;
+//}
 
 .message_text {
   align-self: flex-start;
